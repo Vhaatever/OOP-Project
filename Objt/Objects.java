@@ -2,7 +2,7 @@ package Objt;
 
 public class Objects {  
     private float mass;
-    private float mu;   //friction coeff
+    private float mu=0;   //friction coeff
     private float[] s0= new float[2];
     private float[] s= new float[2];
     private float[] u= new float[2];
