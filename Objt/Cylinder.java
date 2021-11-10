@@ -4,15 +4,11 @@ public class Cylinder extends Rollable {
     private float height;
     private float radius;
     Cylinder(float mass, float mu, float[] s0, float[] s, float[] u, float[] v, int objectID, int objectTypeID, float[] a, float height, float radius) {
-        super(mass, mu, s0, s, u, v, objectID, objectTypeID, a);
+        super(mass, mu, s0, u, objectID, objectTypeID);
         this.height = height;
         this.radius = radius;
     }
-    Cylinder(float mass, float[] s0, float[] s, float[] u, float[] v, int objectID, int objectTypeID, float[] a, float height, float radius) {
-        super(mass, s0, s, u, v, objectID, objectTypeID, a);
-        this.height = height;
-        this.radius = radius;
-    }
+
     public float getHeight() {
         return height;
     }

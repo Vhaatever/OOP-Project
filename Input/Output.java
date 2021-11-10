@@ -6,6 +6,10 @@ public class Output {
     String sys3= "\n 3 for Spring Attached";
     String sys4= "\n 4 for Spring Free";
     String sys5= "\n 5 for Collision+";
+
+    
+
+
     String describe_project="This project is an attempt at doremifasoletino";
     String choosing_instructions="For chooing, press the following";
     public void start_screen()
@@ -18,7 +22,7 @@ public class Output {
 
     public void describe_systems()
     {
-        System.out.println("Collison is a system, where 1 or obejcts are given some initial velocity and their interaction (if it occcurs) is seen in terms of elastic collision.");
+        System.out.println("Collison is a system, where 1 or more obejcts are given some initial velocity and their interaction (if it occcurs) is seen in terms of elastic collision.");
         System.out.println("Wedge is a system where an object is placed on a wedge which has some inclination. The coordinate of the objects are then mapped");
         System.out.println(sys3);
         System.out.println(sys4);
@@ -33,5 +37,16 @@ public class Output {
         System.out.println(sys3);
         System.out.println(sys4);
         System.out.println(sys5);
+    }
+
+    public static void legend_object()
+    {
+    String Obj1= "1-Solid Block";
+    String Obj2= "2-Sphere";
+    String Obj3= "3-Cylinder";
+        System.out.println(Obj1);
+        System.out.println(Obj2);
+        System.out.println(Obj3);
+
     }
 }

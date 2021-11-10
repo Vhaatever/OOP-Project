@@ -1,7 +1,7 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import Input.*;
 import Objt.*;
-import Input.*;;
-
 public class Driver extends Output
    { public static void main(String[] args)
     {
@@ -20,8 +20,14 @@ public class Driver extends Output
     {
         case 1:
         {
-            Collision_Input.start();
+            ArrayList <Solid_Block> sBlocks= new ArrayList<Solid_Block>();
+            ArrayList <Sphere> sphere= new ArrayList<Sphere>();
+            ArrayList <Cylinder> cylinder= new ArrayList<Cylinder>();
 
+            Collision_Input start= new Collision_Input();
+            start.start();
+            sBlocks= start.start();
+            
             break;
         }
     }

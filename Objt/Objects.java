@@ -11,23 +11,12 @@ public class Objects {
     private int ObjectTypeID;
     private float[] a= new float[2];
 
-    public Objects(float mass, float mu, float[] s0, float[] s, float[] u, float[] v, int objectID, int objectTypeID, float[] a) {
+    public Objects(float mass, float mu, float[] s0, float[] s, int objectID, int objectTypeID) {
         this.mass = mass;
         this.mu = mu;
         this.s0 = s0;
         this.s = s;
-        this.u = u;
-        this.v = v;
-        ObjectID = objectID;
-        ObjectTypeID = objectTypeID;
-        this.a = a;
-    }
-    public Objects(float mass, float[] s0, float[] s, float[] u, float[] v, int objectID, int objectTypeID, float[] a) {
-        this.mass = mass;
-        this.s0 = s0;
-        this.s = s;
-        this.u = u;
-        this.v = v;
+
         ObjectID = objectID;
         ObjectTypeID = objectTypeID;
         this.a = a;
