@@ -8,11 +8,10 @@ public class Driver extends Output
     int N;  // no. of objects   
     int n;  // no. of iterations
     int sys_ID;
-    Scanner sc =  new Scanner(System.in);
-    System.out.println("MENU");
-    System.out.println("legend");
-
-    sys_ID = sc.nextInt();
+    Output op= new Output();
+    op.start_screen();
+    op.legend_system();
+    
 
     }
 }
