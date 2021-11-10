@@ -1,5 +1,5 @@
 package Sys;
 import Describe.*;
-public class PulleySys extends System implements Force_Y, Pulley {
+public class PulleySys extends Systems implements Force_Y, Pulley {
     
 }
