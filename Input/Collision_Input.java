@@ -6,6 +6,7 @@ import Objt.*;
 import Sys.*;
 public class Collision_Input {
     static ArrayList<Objects> obj = new ArrayList<Objects>();
+    private static Scanner scn = new Scanner(System.in);
  
     public ArrayList<Objects> getSBlocks()
     {
@@ -18,8 +19,6 @@ public class Collision_Input {
         Collision col= new Collision();
         col.describe_constraints();
         col.describe_reference();
-        Scanner scn= new Scanner(System.in);
-        
         System.out.println("Number of objects you want to add?");
         int num_obj= scn.nextInt();
 

@@ -1,7 +1,5 @@
 package Objt;
 
-import java.util.Arrays;
-
 public class Objects {  
     private float mass;
     private float mu=0;   //friction coeff
