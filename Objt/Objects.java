@@ -1,5 +1,7 @@
 package Objt;
 
+import java.util.Arrays;
+
 public class Objects {  
     private float mass;
     private float mu=0;   //friction coeff
@@ -100,6 +102,13 @@ public class Objects {
 
 	public void setA(float[] a) {
 		this.a=a;
+	}
+
+	@Override
+	public String toString() {
+		return "Objects [ObjectID=" + ObjectID + ", ObjectTypeID=" + ObjectTypeID + ", a=" + Arrays.toString(a)
+				+ ", mass=" + mass + ", mu=" + mu + ", point_collision=" + point_collision + ", s=" + Arrays.toString(s)
+				+ ", s0=" + Arrays.toString(s0) + ", u=" + Arrays.toString(u) + ", v=" + Arrays.toString(v) + "]";
 	}
 
 

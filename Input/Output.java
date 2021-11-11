@@ -5,9 +5,21 @@ public class Output {
     String sys2= "\n 2 for Wedge";
     String sys3= "\n 3 for Spring Attached";
     String sys4= "\n 4 for Spring Free";
-    String sys5= "\n 5 for Collision+";
+    String sys5= "\n 5 for Pulley System";
 
+    String Vasu;
     
+    float time;
+    float delta;
+    float iterations;
+
+    public float calc_iterations(float time, float delta)
+    {
+        this.time= time;
+        this.delta= delta;
+        this.iterations= time/delta; 
+        return this.iterations;
+    }
 
 
     String describe_project="This project is an attempt at doremifasoletino";
@@ -37,6 +49,7 @@ public class Output {
         System.out.println(sys3);
         System.out.println(sys4);
         System.out.println(sys5);
+        System.out.println();
     }
 
     public static void legend_object()
@@ -44,9 +57,9 @@ public class Output {
     String Obj1= "1-Solid Block";
     String Obj2= "2-Sphere";
     String Obj3= "3-Cylinder";
-        System.out.println(Obj1);
-        System.out.println(Obj2);
-        System.out.println(Obj3);
+    System.out.println(Obj1);
+    System.out.println(Obj2);
+    System.out.println(Obj3);
 
     }
 }

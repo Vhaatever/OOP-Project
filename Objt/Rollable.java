@@ -6,8 +6,5 @@ abstract class Rollable extends Objects{
        super(mass, mu, s0, u, objectID, objectTypeID, point_collision);
    }
 
-@Override
-public String toString() {
-    return "Rollable []";
-}
+
 }
