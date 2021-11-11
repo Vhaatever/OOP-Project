@@ -6,12 +6,12 @@ public class Objects {
     private float mass;
     private float mu=0;   //friction coeff
     private float[] s0= new float[2];
-    private float[] s= new float[2];
+    private float[] s= {0,0};
     private float[] u= new float[2];
-	private float[] v= new float[2];
+	private float[] v= {0,0};
     private int ObjectID;
     private int ObjectTypeID;
-    private float[] a= new float[2];
+    private float[] a= {0,0};
 	private float point_collision;
 
     public Objects(float mass, float mu, float[] s0, float[] s, int objectID, int objectTypeID, float point_collision) {

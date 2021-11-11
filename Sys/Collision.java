@@ -5,6 +5,15 @@ import Describe.*;
 import Objt.*;
 
 public class Collision extends Systems implements Friction, Force_X, Ground {
+    private static final float TOLERANCE = (float) 0.05;
+
+    public static void update_vel_collision(Objects obj1, Objects obj2)
+    {
+        float[] temp= obj1.getV();
+        obj1.setV(obj2.getV());
+        obj2.setV(temp);
+    }
+    
     public void describe_constraints()
     {
         System.out.println("The mass has to be the same for the objects (assumption in our system). The unit is kg");
@@ -13,7 +22,18 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
         System.out.println("You are allowed to take friction coefficient arbitraily non negative");
         System.out.println("Initial acceleration is assumed to be zero");
     }
-    public float getSlice() {
+
+    static boolean check_collision(Objects obj1, Objects obj2)
+{
+    float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
+    float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
+    if(cond2 < TOLERANCE || cond1 < TOLERANCE) 
+        return true;
+    else
+        return false;
+    
+
+}    public float getSlice() {
         return slice;
     }
     public void setSlice(float slice) {
@@ -28,9 +48,9 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
     
     static boolean is_Valid(Objects obj1, Objects obj2)
     {
-    float cond1 = obj2.getS0()[0]-obj2.getPoint_collision()-obj1.getS0()[0]-obj1.getPoint_collision();
-    float cond2 = obj1.getS0()[0]-obj1.getPoint_collision()-obj2.getS0()[0]-obj2.getPoint_collision();
-    if(cond2 < 0 || cond1 < 0)
+        float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
+        float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
+        if(cond2 < 0 || cond1 < 0)
         return true;
     else
         return false;
@@ -64,7 +84,25 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
     if(toggle)
     {
-        
+        for(int k=1; k<slice; k++)
+        {
+            for(int i=1; i<=n ; i++)
+            {
+                for(int j=1; j<=n; j++)
+                {
+                    if(i!=j)
+                    {
+                        Objects obj1=obj.get(0);
+                        Objects obj2=obj.get(1);
+                        if(check_collision(obj1, obj2))
+                        {
+                           
+                        }
+                    }
+                }
+            }
+        }
+               
     }
    
 
