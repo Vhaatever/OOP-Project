@@ -5,25 +5,15 @@ import java.util.Scanner;
 import Objt.*;
 import Sys.*;
 public class Collision_Input {
-    ArrayList<Solid_Block> sBlocks = new ArrayList<Solid_Block>();
-    ArrayList<Sphere> sphere = new ArrayList<Sphere>();
-    ArrayList<Cylinder> cylinder = new ArrayList<Cylinder>();
-
-    public ArrayList<Solid_Block> getSBlocks()
+    static ArrayList<Objects> obj = new ArrayList<Objects>();
+ 
+    public ArrayList<Objects> getSBlocks()
     {
-		return this.sBlocks;
-	}
-
-
-	public  ArrayList<Sphere> getSphere() {
-		return this.sphere;
-	}
-
-	public ArrayList<Cylinder> getCylinder() {
-		return this.cylinder;
+		return this.obj;
 	}
  
-    ArrayList <T extends Objects> start()
+
+    public static ArrayList<Objects> initiate()
     {
         Collision col= new Collision();
         col.describe_constraints();
@@ -38,8 +28,7 @@ public class Collision_Input {
             Output.legend_object();
             int obj_type_id=scn.nextInt();
             switch(obj_type_id)
-            {
-             
+            {             
                 case 1:
                 {
 
@@ -69,12 +58,19 @@ public class Collision_Input {
                     System.out.println("Enter the initial velocity");  
                     u[0]=scn.nextFloat();
 
-                    sBlocks.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, b, b));
+                    obj.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, b, b));
+                    break;
+                }
+                case 2:
+                {
+
+
                 }
             }
 
         }
         
+        return obj;
     }
     
 }

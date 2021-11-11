@@ -17,9 +17,8 @@ public class Objects {
         this.s0 = s0;
         this.s = s;
 
-        ObjectID = objectID;
-        ObjectTypeID = objectTypeID;
-        this.a = a;
+        this.ObjectID = objectID;
+        this.ObjectTypeID = objectTypeID;
     }
 
 	public float getMass() {

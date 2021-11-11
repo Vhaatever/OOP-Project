@@ -15,20 +15,18 @@ public class Driver extends Output
     op.legend_system();
     Scanner scn= new Scanner(System.in);
     sys_ID=scn.nextInt();
-
+    ArrayList<Objects> obj = new ArrayList<Objects>();
     switch(sys_ID)
     {
+        
         case 1:
         {
-            ArrayList <Solid_Block> sBlocks= new ArrayList<Solid_Block>();
-            ArrayList <Sphere> sphere= new ArrayList<Sphere>();
-            ArrayList <Cylinder> cylinder= new ArrayList<Cylinder>();
-
-            Collision_Input start= new Collision_Input();
-            start.start();
-            sBlocks= start.start();
-            
+            obj.addAll(Collision_Input.initiate());
             break;
+        }
+        case 2:
+        {
+
         }
     }
 
