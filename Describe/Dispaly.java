@@ -1,6 +1,6 @@
 package Describe;
 
-abstract class Dispaly {
+ public interface Dispaly {
    abstract void describe_constraints();
    abstract void describe_reference();
 }

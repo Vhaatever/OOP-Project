@@ -13,13 +13,14 @@ public static void main(String[] args)
     op.start_screen();
     op.describe_systems();
     op.legend_system();
+  
+    sys_ID=scn.nextInt();
     System.out.println("Input Time");
     float time =scn.nextInt();
-    System.out.println("Input Time");
-    float delta= scn.nextInt();
+    System.out.println("Number of iterations");
+    int delta= scn.nextInt();
     float slice = op.calc_iterations(time, delta);
    
-    sys_ID=scn.nextInt();
     ArrayList<Objects> obj = new ArrayList<Objects>();
     switch(sys_ID)
     {
@@ -27,7 +28,8 @@ public static void main(String[] args)
         case 1:
         {
             obj.addAll(Collision_Input.initiate());
-            Collision.simulate(obj, slice);
+            Collision col= new Collision();
+            col.simulate(obj, slice, delta);
             break;
         }
         case 2:

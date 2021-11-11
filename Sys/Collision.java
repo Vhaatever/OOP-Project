@@ -3,17 +3,21 @@ package Sys;
 import java.util.ArrayList;
 import Describe.*;
 import Objt.*;
-
 public class Collision extends Systems implements Friction, Force_X, Ground {
     private static final float TOLERANCE = (float) 0.05;
+    private static final double G = 9.8;
 
+    public void update_acc_X(Objects obj)
+    {
+        obj.getA()[0]=(float) (Integer.signum((int) obj.getV()[0])*obj.getMu()*G);
+    }
     public static void update_vel_collision(Objects obj1, Objects obj2)
     {
         float[] temp= obj1.getV();
         obj1.setV(obj2.getV());
         obj2.setV(temp);
     }
-    
+
     public void describe_constraints()
     {
         System.out.println("The mass has to be the same for the objects (assumption in our system). The unit is kg");
@@ -23,7 +27,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
         System.out.println("Initial acceleration is assumed to be zero");
     }
 
-    static boolean check_collision(Objects obj1, Objects obj2)
+   boolean check_collision(Objects obj1, Objects obj2)
 {
     float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
     float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
@@ -46,7 +50,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
     private static float slice;
     
-    static boolean is_Valid(Objects obj1, Objects obj2)
+   boolean is_Valid(Objects obj1, Objects obj2)
     {
         float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
         float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
@@ -56,16 +60,16 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
         return false;
     }
 
-    public static void simulate(ArrayList<Objects> obj, float slice)
+    public void simulate(ArrayList<Objects> obj, float slice, int num)
     {
     int n= obj.size();
     Collision.slice=slice;
     boolean toggle= true;
     check:
     {
-        for(int i=1; i<=n ; i++)
+        for(int i=0; i<n ; i++)
         {
-            for(int j=1; j<=n; j++)
+            for(int j=0; j<n; j++)
             {
                 if(i!=j)
                 {
@@ -77,6 +81,9 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                        System.out.println( "System input invalid. Object"+i+" and Object " +j+" has intersecting initial placement");
                        break check;
                     }
+                    else{
+                     
+                    }
                 }
             }
         }
@@ -84,11 +91,12 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
     if(toggle)
     {
-        for(int k=1; k<slice; k++)
+        System.out.println(slice);
+        for(int k=1; k<num+1; k++)
         {
-            for(int i=1; i<=n ; i++)
+            for(int i=0; i<n ; i++)
             {
-                for(int j=1; j<=n; j++)
+                for(int j=0; j<n; j++)
                 {
                     if(i!=j)
                     {
@@ -96,18 +104,41 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                         Objects obj2=obj.get(1);
                         if(check_collision(obj1, obj2))
                         {
-                           
+                            update_vel_collision(obj1, obj2);  
                         }
                     }
                 }
-            }
+               
+
+                check_friction(obj.get(i));
+                update_distance(obj.get(i), slice);
+                update_velocity(obj.get(i), slice);
+            } 
+
+            object_distance(obj);
         }
                
     }
-   
-
+ 
+ 
 
     }
+   void check_friction(Objects obj) {
+        
+        if(obj.getV()[0]>0)
+        {
+            update_acc_X(obj);
+        }
+    }
+
+public void object_distance(ArrayList<Objects> obj) {
+    for(int i=0; i<obj.size();i++)
+    {
+        System.out.println(obj.get(i));
+        System.out.println(i+"th iteration");
+    }
+}
+
 
 
 }

@@ -14,11 +14,13 @@ public class Objects {
     private float[] a= {0,0};
 	private float point_collision;
 
-    public Objects(float mass, float mu, float[] s0, float[] s, int objectID, int objectTypeID, float point_collision) {
+    public Objects(float mass, float mu, float[] s0, float[] u, int objectID, int objectTypeID, float point_collision) {
         this.mass = mass;
         this.mu = mu;
         this.s0 = s0;
-        this.s = s;
+        this.u= u;
+		this.s= s0; 
+		this.v=u;
         this.ObjectID = objectID;
         this.ObjectTypeID = objectTypeID;
 		this.point_collision=point_collision;
