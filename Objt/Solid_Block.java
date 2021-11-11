@@ -5,7 +5,7 @@ public class Solid_Block extends NonRollable {
     private float breadth;
     public Solid_Block(float mass, float mu, float[] s0,  float[] u, int objectID, int objectTypeID,float length,float breadth)
     {
-        super(mass, mu, s0, u, objectID);
+        super(mass, mu, s0, u, objectID, length/2);
         this.setLength(length);
         this.setBreadth(breadth);
     }
@@ -21,4 +21,5 @@ public class Solid_Block extends NonRollable {
     public void setLength(float length) {
         this.length = length;
     }
+
 }

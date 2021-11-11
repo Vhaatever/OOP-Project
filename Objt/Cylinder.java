@@ -3,8 +3,8 @@ package Objt;
 public class Cylinder extends Rollable {
     private float height;
     private float radius;
-    Cylinder(float mass, float mu, float[] s0, float[] s, float[] u, float[] v, int objectID, int objectTypeID, float[] a, float height, float radius) {
-        super(mass, mu, s0, u, objectID, objectTypeID);
+    public Cylinder(float mass, float mu, float[] s0, float[] u, int objectID, int objectTypeID, float radius, float height) {
+        super(mass, mu, s0, u, objectID, objectTypeID, radius/2);
         this.height = height;
         this.radius = radius;
     }

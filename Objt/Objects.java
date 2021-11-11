@@ -1,5 +1,7 @@
 package Objt;
 
+import java.util.Arrays;
+
 public class Objects {  
     private float mass;
     private float mu=0;   //friction coeff
@@ -10,16 +12,25 @@ public class Objects {
     private int ObjectID;
     private int ObjectTypeID;
     private float[] a= new float[2];
+	private float point_collision;
 
-    public Objects(float mass, float mu, float[] s0, float[] s, int objectID, int objectTypeID) {
+    public Objects(float mass, float mu, float[] s0, float[] s, int objectID, int objectTypeID, float point_collision) {
         this.mass = mass;
         this.mu = mu;
         this.s0 = s0;
         this.s = s;
-
         this.ObjectID = objectID;
         this.ObjectTypeID = objectTypeID;
+		this.point_collision=point_collision;
     }
+
+	public float getPoint_collision() {
+		return point_collision;
+	}
+
+	public void setPoint_collision(float point_collision) {
+		this.point_collision = point_collision;
+	}
 
 	public float getMass() {
 		return this.mass;
@@ -92,5 +103,6 @@ public class Objects {
 	public void setA(float[] a) {
 		this.a=a;
 	}
+
 
 }
