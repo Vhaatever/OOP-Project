@@ -5,7 +5,7 @@ public class Systems {
     public void update_velocity(Objects obj, float slice)
     {
         float x= obj.getV()[0]+obj.getA()[0]*slice;
-        float y= obj.getV()[0]+obj.getA()[0]*slice;
+        float y= obj.getV()[1]+obj.getA()[1]*slice;
         float[] v= {x,y};
         obj.setV(v);
     }

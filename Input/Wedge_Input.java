@@ -28,7 +28,6 @@ public class Wedge_Input {
                 s0= new float[2];
                 u= new float[2];
                 mu=0;
-
                     System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
                     mass=scn.nextFloat();
                     System.out.println("Press 1 if you want to consider friction for this object");
@@ -38,18 +37,8 @@ public class Wedge_Input {
                         System.out.println("Enter the coefficient of friction");
                         mu=scn.nextFloat();
                     }
-                    System.out.println("Enter the initial position along x");
-                    s0[0]=scn.nextFloat();
-                    System.out.println("Enter the initial position along y");
-                    s0[1]=scn.nextFloat();
- 
-                    System.out.println("Enter the initial velocity along x");  
-                    u[0]=scn.nextFloat();
-                    System.out.println("Enter the initial velocity along y");  
-                    u[1]=scn.nextFloat();
-                    int i=1; //for object
-
-            switch(obj_type_id)
+int i=1; //for object
+        switch(obj_type_id)
             {             
                 case 1:
                 {                  
@@ -66,6 +55,7 @@ public class Wedge_Input {
                     System.out.println("Enter the radius of the object");
                     float r=scn.nextFloat();
                     obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
+                    break;
                 }
                 case 3:
                 {
@@ -74,12 +64,13 @@ public class Wedge_Input {
                     System.out.println("Enter the height of the object");
                     float h=scn.nextFloat();
                     obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
+                    break;
                 }
 
 
             }
 
-        System.out.println("Press 1 if you want to consider friction for this object");
+        System.out.println("Enter the angle of inclination for the wedge");
         double angle= scn.nextInt();
         obj.add(new Wedge(angle));
        

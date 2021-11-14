@@ -39,6 +39,7 @@ public static void main(String[] args)
             obj.addAll(Wedge_Input.initiate());
             WedgeSys wedge= new WedgeSys();
             wedge.simulate(obj, slice, delta);
+            break;
         }
     }
 

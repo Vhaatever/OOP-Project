@@ -123,7 +123,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
  
 
     }
-   void check_friction(Objects obj) {
+   public void check_friction(Objects obj) {
         
         if(obj.getV()[0]>0)
         {
@@ -137,6 +137,11 @@ public void object_distance(ArrayList<Objects> obj) {
         System.out.println(obj.get(i));
         System.out.println(i+"th iteration");
     }
+}
+@Override
+public void check_friction(Objects obj, Wedge wedge) {
+	// TODO Auto-generated method stub
+	
 }
 
 
