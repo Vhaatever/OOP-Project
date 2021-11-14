@@ -21,12 +21,13 @@ public static void main(String[] args)
     int delta= scn.nextInt();
     float slice = op.calc_iterations(time, delta);
    
-    ArrayList<Objects> obj = new ArrayList<Objects>();
     switch(sys_ID)
     {
         
         case 1:
         {
+            ArrayList<Objects> obj = new ArrayList<Objects>();
+
             obj.addAll(Collision_Input.initiate());
             Collision col= new Collision();
             col.simulate(obj, slice, delta);
@@ -34,7 +35,10 @@ public static void main(String[] args)
         }
         case 2:
         {
-
+            ArrayList<Object> obj = new ArrayList<Object>();
+            obj.addAll(Wedge_Input.initiate());
+            WedgeSys wedge= new WedgeSys();
+            wedge.simulate(obj, slice, delta);
         }
     }
 
