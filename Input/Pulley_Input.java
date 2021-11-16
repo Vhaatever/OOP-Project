@@ -31,22 +31,16 @@ public class Pulley_Input {
                     s0= new float[2];
                     u= new float[2];
                     mu=0;
-                    s0[1]=0;
-                    u[1]=0;
+                    s0[0]=0;
+                    u[0]=0;
                     System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
                     mass=scn.nextFloat();
-                    System.out.println("Press 1 if you want to consider friction for this object");
-                    int toggle= scn.nextInt();
-                    if(toggle==1)
-                    {
-                        System.out.println("Enter the coefficient of friction");
-                        mu=scn.nextFloat();
-                    }
+                
                     System.out.println("Enter the initial position");
-                    s0[0]=scn.nextFloat();
+                    s0[1]=scn.nextFloat();
  
                     System.out.println("Enter the initial velocity");  
-                    u[0]=scn.nextFloat();
+                    u[1]=scn.nextFloat();
 
 
             switch(obj_type_id)
