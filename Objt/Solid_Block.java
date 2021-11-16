@@ -1,24 +1,24 @@
 package Objt;
 
 public class Solid_Block extends NonRollable {
-    private float length;
-    private float breadth;
-    public Solid_Block(float mass, float mu, float[] s0,  float[] u, int objectID, int objectTypeID,float length,float breadth)
+    private double length;
+    private double breadth;
+    public Solid_Block(double mass, double mu, double[] s0,  double[] u, int objectID, int objectTypeID,double length,double breadth)
     {
         super(mass, mu, s0, u, objectID, objectTypeID, length/2);
         this.setLength(length);
         this.setBreadth(breadth);
     }
-    public float getBreadth() {
+    public double getBreadth() {
         return breadth;
     }
-    public void setBreadth(float breadth) {
+    public void setBreadth(double breadth) {
         this.breadth = breadth;
     }
-    public float getLength() {
+    public double getLength() {
         return length;
     }
-    public void setLength(float length) {
+    public void setLength(double length) {
         this.length = length;
     }
 

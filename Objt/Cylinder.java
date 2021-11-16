@@ -1,24 +1,24 @@
 package Objt;
 
 public class Cylinder extends Rollable {
-    private float height;
-    private float radius;
-    public Cylinder(float mass, float mu, float[] s0, float[] u, int objectID, int objectTypeID, float radius, float height) {
+    private double height;
+    private double radius;
+    public Cylinder(double mass, double mu, double[] s0, double[] u, int objectID, int objectTypeID, double radius, double height) {
         super(mass, mu, s0, u, objectID, objectTypeID, radius/2);
         this.height = height;
         this.radius = radius;
     }
 
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
-    public void setRadius(float radius) {
+    public void setRadius(double radius) {
         this.radius = radius;
     }
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     } 
 }

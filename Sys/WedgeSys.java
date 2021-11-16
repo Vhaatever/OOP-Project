@@ -37,7 +37,7 @@ public class WedgeSys extends Systems implements Force_X, Force_Y, Friction, Slo
 		System.out.println("The initial velocity will be along the wedge. Positive velocity means up the slope. Negative means down the slope");
 	}
 
-	public void simulate(ArrayList<Object> obj, float slice, int delta) {
+	public void simulate(ArrayList<Object> obj, double slice, int delta) {
 		Objects ob= (Objects) obj.get(0);
 		Wedge wd= (Wedge) obj.get(1);
 		System.out.println("Enter the velocity.Positive velocity means up the slope. Negative means down the slope");
@@ -70,7 +70,7 @@ public class WedgeSys extends Systems implements Force_X, Force_Y, Friction, Slo
 
 	@Override
 	public void update_vel_init(Objects obj, Double u, Double k) {
-		float uArray[]= {(float)(-Math.cos(k)*u),(float)(Math.sin(k)*u)};
+		double uArray[]= {(double)(-Math.cos(k)*u),(double)(Math.sin(k)*u)};
 		obj.setU(uArray);
 	}
 
@@ -95,9 +95,9 @@ public class WedgeSys extends Systems implements Force_X, Force_Y, Friction, Slo
 
 	@Override
 	public void update_acc(Objects ob, Wedge wd, double friction) {
-		float a1=(float)(ob.getMass()*G*Math.cos(wd.getAngle())-ob.getMu()*ob.getMass()*G*Math.sin(wd.getAngle()));
-		float a2=(float)(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
-		float[] acc= {a1,a2};
+		double a1=(double)(ob.getMass()*G*Math.cos(wd.getAngle())-ob.getMu()*ob.getMass()*G*Math.sin(wd.getAngle()));
+		double a2=(double)(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
+		double[] acc= {a1,a2};
 		ob.setA(acc);
 	}
 }

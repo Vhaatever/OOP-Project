@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import Describe.*;
 import Objt.*;
 public class Collision extends Systems implements Friction, Force_X, Ground {
-    private static final float TOLERANCE = (float) 0.05;
+    private static final double TOLERANCE = (double) 0.05;
     private static final double G = 9.8;
 
     public void update_acc_X(Objects obj)
     {
-        obj.getA()[0]=(float) (Integer.signum((int) obj.getV()[0])*obj.getMu()*G);
+        obj.getA()[0]=(double) (Integer.signum((int) obj.getV()[0])*obj.getMu()*G);
     }
     public static void update_vel_collision(Objects obj1, Objects obj2)
     {
-        float[] temp= obj1.getV();
+        double[] temp= obj1.getV();
         obj1.setV(obj2.getV());
         obj2.setV(temp);
     }
@@ -29,18 +29,18 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
    boolean check_collision(Objects obj1, Objects obj2)
 {
-    float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
-    float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
+    double cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
+    double cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
     if(cond2 < TOLERANCE || cond1 < TOLERANCE) 
         return true;
     else
         return false;
     
 
-}    public float getSlice() {
+}    public double getSlice() {
         return slice;
     }
-    public void setSlice(float slice) {
+    public void setSlice(double slice) {
         Collision.slice = slice;
     }
     public void describe_reference()
@@ -48,19 +48,19 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
         System.out.println("The 1D coordinate system will be follwoed with the package in the same refernece frame");
     }
 
-    private static float slice;
+    private static double slice;
     
    boolean is_Valid(Objects obj1, Objects obj2)
     {
-        float cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
-        float cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
+        double cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
+        double cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
         if(cond2 < 0 || cond1 < 0)
         return true;
     else
         return false;
     }
 
-    public void simulate(ArrayList<Objects> obj, float slice, int num)
+    public void simulate(ArrayList<Objects> obj, double slice, int num)
     {
     int n= obj.size();
     Collision.slice=slice;

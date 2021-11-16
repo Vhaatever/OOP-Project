@@ -16,10 +16,10 @@ public static void main(String[] args)
   
     sys_ID=scn.nextInt();
     System.out.println("Input Time");
-    float time =scn.nextInt();
+    double time =scn.nextInt();
     System.out.println("Number of iterations");
     int delta= scn.nextInt();
-    float slice = op.calc_iterations(time, delta);
+    double slice = op.calc_iterations(time, delta);
    
     switch(sys_ID)
     {

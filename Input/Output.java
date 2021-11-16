@@ -9,11 +9,11 @@ public class Output {
 
     String Vasu;
     
-    float time;
-    float delta;
-    float iterations;
+    double time;
+    double delta;
+    double iterations;
 
-    public float calc_iterations(float time, float delta)
+    public double calc_iterations(double time, double delta)
     {
         this.time= time;
         this.delta= delta;

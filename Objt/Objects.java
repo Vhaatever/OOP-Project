@@ -3,18 +3,18 @@ package Objt;
 import java.util.Arrays;
 
 public class Objects {  
-    private float mass;
-    private float mu=0;   //friction coeff
-    private float[] s0= new float[2];
-    private float[] s= {0,0};
-    private float[] u= new float[2];
-	private float[] v= {0,0};
+    private double mass;
+    private double mu=0;   //friction coeff
+    private double[] s0= new double[2];
+    private double[] s= {0,0};
+    private double[] u= new double[2];
+	private double[] v= {0,0};
     private int ObjectID;
     private int ObjectTypeID;
-    private float[] a= {0,0};
-	private float point_collision;
+    private double[] a= {0,0};
+	private double point_collision;
 
-    public Objects(float mass, float mu, float[] s0, float[] u, int objectID, int objectTypeID, float point_collision) {
+    public Objects(double mass, double mu, double[] s0, double[] u, int objectID, int objectTypeID, double point_collision) {
         this.mass = mass;
         this.mu = mu;
         this.s0 = s0;
@@ -26,59 +26,59 @@ public class Objects {
 		this.point_collision=point_collision;
     }
 
-	public float getPoint_collision() {
+	public double getPoint_collision() {
 		return point_collision;
 	}
 
-	public void setPoint_collision(float point_collision) {
+	public void setPoint_collision(double point_collision) {
 		this.point_collision = point_collision;
 	}
 
-	public float getMass() {
+	public double getMass() {
 		return this.mass;
 	}
 
-	public void setMass(float mass) {
+	public void setMass(double mass) {
 		this.mass = mass;
 	}
 
-	public float getMu() {
+	public double getMu() {
 		return this.mu;
 	}
 
-	public void setMu(float mu) {
+	public void setMu(double mu) {
 		this.mu = mu;
 	}
 
-	public float[] getS0() {
+	public double[] getS0() {
 		return this.s0;
 	}
 
-	public void setS0(float[] s0) {
+	public void setS0(double[] s0) {
 		this.s0= s0;
 	}
 
-	public float[] getS() {
+	public double[] getS() {
 		return this.s;
 	}
 
-	public void setS(float[] s) {
+	public void setS(double[] s) {
 		this.s=s;
 	}
 
-	public float[] getU() {
+	public double[] getU() {
 		return this.u;
 	}
 
-	public void setU(float[] u) {
+	public void setU(double[] u) {
 		this.u=u;
 	}
 
-	public float[] getV() {
+	public double[] getV() {
 		return this.v;
 	}
 
-	public void setV(float[] v) {
+	public void setV(double[] v) {
 		this.v= v;
 	}
 
@@ -98,11 +98,11 @@ public class Objects {
 		this.ObjectTypeID = ObjectTypeID;
 	}
 
-	public float[] getA() {
+	public double[] getA() {
 		return this.a;
 	}
 
-	public void setA(float[] a) {
+	public void setA(double[] a) {
 		this.a=a;
 	}
 

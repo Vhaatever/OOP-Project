@@ -26,10 +26,10 @@ public class Collision_Input {
         {
             Output.legend_object();
             int obj_type_id=scn.nextInt();
-                    float mass, mu, l, b;
-                    float[] s0, u;
-                    s0= new float[2];
-                    u= new float[2];
+                    double mass, mu, l, b;
+                    double[] s0, u;
+                    s0= new double[2];
+                    u= new double[2];
                     mu=0;
                     s0[1]=0;
                     u[1]=0;
@@ -64,15 +64,15 @@ public class Collision_Input {
                 case 2:
                 {
                     System.out.println("Enter the radius of the object");
-                    float r=scn.nextFloat();
+                    double r=scn.nextFloat();
                     obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
                 }
                 case 3:
                 {
                     System.out.println("Enter the radius of the object");
-                    float r=scn.nextFloat();
+                    double r=scn.nextFloat();
                     System.out.println("Enter the height of the object");
-                    float h=scn.nextFloat();
+                    double h=scn.nextFloat();
                     obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
                 }
 
