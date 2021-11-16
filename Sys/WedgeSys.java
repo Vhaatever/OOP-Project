@@ -6,7 +6,7 @@ import java.lang.Math;
 import Describe.*;
 import Objt.Objects;
 import Objt.Wedge;
-public class WedgeSys extends Systems implements Force_X, Force_Y, Friction, Slope{
+public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 	private static final double TOLERANCE = 0.05;
 	private double friction;
