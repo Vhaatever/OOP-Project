@@ -41,7 +41,14 @@ public static void main(String[] args)
             wedge.simulate(obj, slice, delta);
             break;
         }
-    }
+        case 5:
+        {
+            ArrayList<Objects> obj= new ArrayList<Objects>();
+            obj.addAll(Pulley_Input.initiate());
+            PulleySys pulley= new PulleySys();
+            pulley.simulate(obj, slice, delta);
+        }
+    } 
 
     }
 }

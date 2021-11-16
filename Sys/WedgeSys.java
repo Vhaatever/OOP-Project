@@ -70,7 +70,7 @@ public class WedgeSys extends Systems implements Force_X, Force_Y, Friction, Slo
 
 	@Override
 	public void update_vel_init(Objects obj, Double u, Double k) {
-		float uArray[]= {-(float)Math.cos(u),(float)Math.sin(u)};
+		float uArray[]= {(float)(-Math.cos(k)*u),(float)(Math.sin(k)*u)};
 		obj.setU(uArray);
 	}
 
