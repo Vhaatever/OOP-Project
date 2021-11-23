@@ -41,6 +41,11 @@ public static void main(String[] args)
             wedge.simulate(obj, slice, delta);
             break;
         }
+        case 3:
+        {
+            ArrayList<Object> obj = new ArrayList<Object>();
+        
+        }
         case 5:
         {
             ArrayList<Objects> obj= new ArrayList<Objects>();

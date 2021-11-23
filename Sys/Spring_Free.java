@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import Describe.*;
 import Objt.Objects;
 
-public class Spring_Free extends Systems implements Force_X, Spring, Ground  {
+public class Spring_Free extends Systems implements Force_X, Spring_Force, Ground  {
 
     @Override
     public void update_acc_X(Objects obj) {
