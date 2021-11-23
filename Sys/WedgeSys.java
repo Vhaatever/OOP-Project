@@ -99,5 +99,6 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 		double a2=(double)(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
 		double[] acc= {a1,a2};
 		ob.setA(acc);
-	}
-}
+	
+	}}
+

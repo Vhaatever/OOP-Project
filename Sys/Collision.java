@@ -145,5 +145,4 @@ public void check_friction(Objects obj, Wedge wedge) {
 }
 
 
-
 }

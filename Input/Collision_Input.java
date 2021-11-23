@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import Objt.*;
 import Sys.*;
-public class Collision_Input {
+public class Collision_Input extends Input{
     static ArrayList<Objects> obj = new ArrayList<Objects>();
     private static Scanner scn = new Scanner(System.in);
  
@@ -12,9 +12,8 @@ public class Collision_Input {
     {
 		return Collision_Input.obj;
 	}
- 
 
-    public static ArrayList<Objects> initiate()
+public static ArrayList<Objects> initiate()
     {
         Collision col= new Collision();
         col.describe_constraints();
@@ -26,7 +25,7 @@ public class Collision_Input {
         {
             Output.legend_object();
             int obj_type_id=scn.nextInt();
-                    double mass, mu, l, b;
+                    double mass, mu, l,b ;
                     double[] s0, u;
                     s0= new double[2];
                     u= new double[2];
@@ -34,55 +33,51 @@ public class Collision_Input {
                     s0[1]=0;
                     u[1]=0;
                     System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
-                    mass=scn.nextFloat();
+                    mass=scn.nextDouble();
                     System.out.println("Press 1 if you want to consider friction for this object");
                     int toggle= scn.nextInt();
                     if(toggle==1)
                     {
                         System.out.println("Enter the coefficient of friction");
-                        mu=scn.nextFloat();
+                        mu=scn.nextDouble();
                     }
                     System.out.println("Enter the initial position");
-                    s0[0]=scn.nextFloat();
+                    s0[0]=scn.nextDouble();
  
                     System.out.println("Enter the initial velocity");  
-                    u[0]=scn.nextFloat();
-
-
-            switch(obj_type_id)
-            {             
-                case 1:
-                {                  
-                    System.out.println("Enter the length of the object");
-                    l=scn.nextFloat();
-                    System.out.println("Enter the width of the object");
-                    b=scn.nextFloat();
-                    obj.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, l, b));
-                    break;
-                   
-                }
-                case 2:
-                {
-                    System.out.println("Enter the radius of the object");
-                    double r=scn.nextFloat();
-                    obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
-                }
-                case 3:
-                {
-                    System.out.println("Enter the radius of the object");
-                    double r=scn.nextFloat();
-                    System.out.println("Enter the height of the object");
-                    double h=scn.nextFloat();
-                    obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
-                }
-
-
-            }
-
+                    u[0]=scn.nextDouble();
+                    switch(obj_type_id)
+                    {             
+                        case 1:
+                        {                  
+                            System.out.println("Enter the length of the object");
+                            l=scn.nextFloat();
+                            System.out.println("Enter the width of the object");
+                            b=scn.nextFloat();
+                            obj.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, l, b));
+                            break;
+                           
+                        }
+                        case 2:
+                        {
+                            System.out.println("Enter the radius of the object");
+                            double r=scn.nextFloat();
+                            obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
+                        }
+                        case 3:
+                        {
+                            System.out.println("Enter the radius of the object");
+                            double r=scn.nextFloat();
+                            System.out.println("Enter the height of the object");
+                            double h=scn.nextFloat();
+                            obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
+                        }                    
         }
         
-        return obj;
+      
     }
 
+    return obj;
+}}
+
     
-}

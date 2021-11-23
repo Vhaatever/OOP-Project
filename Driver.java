@@ -44,14 +44,18 @@ public static void main(String[] args)
         case 3:
         {
             ArrayList<Object> obj = new ArrayList<Object>();
-        
+            obj.addAll(Spring_Attached_Input.initiate());
+            Spring_Attached spring= new Spring_Attached();
+            spring.simulate(obj, slice, delta);
+            break;
         }
-        case 5:
+        case 4:
         {
             ArrayList<Objects> obj= new ArrayList<Objects>();
             obj.addAll(Pulley_Input.initiate());
             PulleySys pulley= new PulleySys();
             pulley.simulate(obj, slice, delta);
+            break;
         }
     } 
 
