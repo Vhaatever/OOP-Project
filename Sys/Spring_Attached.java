@@ -34,8 +34,8 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 	}
 
 	public void simulate(ArrayList<Object> obj, double slice, int delta) {
-		Objects ob= (Objects) obj.get(0);
-		Spring sp= (Spring) obj.get(1);
+		Objects ob= (Objects) obj.get(1);
+		Spring sp= (Spring) obj.get(0);
 		boolean toggle=false;
 
 		if(!toggle)

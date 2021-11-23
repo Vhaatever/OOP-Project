@@ -105,6 +105,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                         if(check_collision(obj1, obj2))
                         {
                             update_vel_collision(obj1, obj2);  
+                            System.out.println("Collision occurs");
                         }
                     }
                 }
@@ -115,7 +116,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                 update_velocity(obj.get(i), slice);
             } 
 
-            object_distance(obj);
+            object_distance(obj,num);
         }
                
     }
@@ -131,17 +132,25 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
         }
     }
 
-public void object_distance(ArrayList<Objects> obj) {
-    for(int i=0; i<obj.size();i++)
+public void object_distance(ArrayList<Objects> obj, int num) {
+    for(int i=0; i<num;i++)
     {
-        System.out.println(obj.get(i));
-        System.out.println(i+"th iteration");
+        System.out.println((i+1)+"th iteration");
+        for(int j=0; j<obj.size(); j++)
+        {
+            System.out.println(obj.get(j));
+        }
     }
 }
 @Override
 public void check_friction(Objects obj, Wedge wedge) {
 	// TODO Auto-generated method stub
 	
+}
+@Override
+public void object_distance(ArrayList<Objects> obj) {
+    // TODO Auto-generated method stub
+    
 }
 
 

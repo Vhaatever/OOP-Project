@@ -63,6 +63,7 @@ public static ArrayList<Objects> initiate()
                             System.out.println("Enter the radius of the object");
                             double r=scn.nextFloat();
                             obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
+                            break;
                         }
                         case 3:
                         {
@@ -71,6 +72,7 @@ public static ArrayList<Objects> initiate()
                             System.out.println("Enter the height of the object");
                             double h=scn.nextFloat();
                             obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
+                            break;
                         }                    
         }
         

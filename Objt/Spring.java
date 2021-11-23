@@ -1,9 +1,13 @@
 package Objt;
 
 public class Spring extends Environment {
-    int k;
+    double k;
 
-    public int getK() {
+    public Spring(double k2) {
+        this.k=k2;
+    }
+
+    public double getK() {
         return k;
     }
 

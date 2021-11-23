@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Objt.Objects;
 import Objt.Spring;
-import Objt.Wedge;
 import Sys.Spring_Attached;
 
 public class Spring_Attached_Input extends Input{
@@ -35,16 +34,18 @@ public class Spring_Attached_Input extends Input{
                 mass=scn.nextDouble();
                 System.out.println("Enter the initial Displacement"); 
                 s0[0]=scn.nextDouble(); 
-                   
+                double k;
+                k= scn.nextDouble();
+                System.out.println("Enter the Spring coefficient for the spring");
+                obj.add(new Spring(k));
+                
         int i=1; //for object
+        
         entry_object(obj, obj_type_id, mass, mu, s0, u, i);
 
-        System.out.println("Enter the Spring coefficient for the spring");
-        double k= scn.nextInt();
-        obj.add(new Wedge(k));
-        scn.close();
         return obj;
-    }
+      
+            }
 
 
 }
