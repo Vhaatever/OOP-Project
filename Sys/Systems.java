@@ -12,8 +12,8 @@ public class Systems {
 
     public void update_distance(Objects obj, double slice)
     {
-        double x= (double) (obj.getS()[0]+obj.getV()[0]*slice+0.5*obj.getA()[0]*slice*slice);
-        double y= (double) (obj.getS()[1]+obj.getV()[1]*slice+0.5*obj.getA()[1]*slice*slice);
+        double x=  (obj.getS()[0]+obj.getV()[0]*slice+0.5*obj.getA()[0]*slice*slice);
+        double y=  (obj.getS()[1]+obj.getV()[1]*slice+0.5*obj.getA()[1]*slice*slice);
         double[] s= {x,y};
         obj.setS(s);
     }

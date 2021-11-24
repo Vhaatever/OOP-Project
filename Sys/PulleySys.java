@@ -16,30 +16,34 @@ public class PulleySys extends Systems implements Force_Y, Pulley {
     int n= obj.size();
     PulleySys.setSlice(slice);
        
-    setString_length(getSlice(obj));   
+    setString_length(getSlice(obj));  
+    update_acc_Y(obj); 
     for(int j=1; j<=num; j++)
     {
-        update_acc_Y(obj);
         b = getSlice(obj)-getString_length()<TOLERANCE;
         c = getString_length()-getSlice(obj)<TOLERANCE;
-        if(b||c)
-        {
+        System.out.println("Time-"+slice*j);
+
+     
             for(int i=0; i<n ; i++)  
             {
+                if((b||c)&&(obj.get(i).getS()[1]>0)&&(obj.get(i).getS()[1]<getString_length()))
+                {
             update_distance(obj.get(i), slice);
             update_velocity(obj.get(i), slice);
-            System.out.println(obj.get(i).toString());
-            }
-        }
-        else
+            System.out.println(obj.get(i).toString());}
+            else
         {
             System.out.println("String Ended");
         }
+            }
+        }
+        
         
     }
 
 
-}
+
  
     public static double getString_length() {
         return string_length;
@@ -72,8 +76,8 @@ public class PulleySys extends Systems implements Force_Y, Pulley {
 
      public double getSlice(ArrayList<Objects> obj)
      {
-         double l1= obj.get(0).getS0()[1];
-         double l2= obj.get(1).getS0()[1];
+         double l1= obj.get(0).getS()[1];
+         double l2= obj.get(1).getS()[1];
          return l1+l2;
      }
 
@@ -82,10 +86,10 @@ public class PulleySys extends Systems implements Force_Y, Pulley {
         double m1= obj.get(0).getMass();
         double m2= obj.get(1).getMass();
 
-        double[] a1={0, (m1-m2)/m1*G};
+        double[] a1={0, (m1-m2)/(m1+m2)*G};
         obj.get(0).setA(a1);
 
-        double[] a2={0, (m2-m1)/m2*G};
+        double[] a2={0, (m2-m1)/(m1+m2)*G};
         obj.get(1).setA(a2);
     }
 }

@@ -9,10 +9,10 @@ import Sys.PulleySys;
 public class Pulley_Input {
     static ArrayList<Objects> obj = new ArrayList<Objects>();
 
-     static Scanner scn= new Scanner(System.in);
+    static Scanner scn= new Scanner(System.in);
     public ArrayList<Objects> getSBlocks()
     {
-		return Collision_Input.obj;
+		return obj;
 	}
  
 
@@ -32,25 +32,32 @@ public class Pulley_Input {
                     u= new double[2];
                     mu=0;
                     s0[0]=0;
-                    u[0]=0;
                     System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
-                    mass=scn.nextFloat();
+                    mass=scn.nextDouble();
                 
-                    System.out.println("Enter the initial position");
-                    s0[1]=scn.nextFloat();
- 
-                    System.out.println("Enter the initial velocity");  
-                    u[1]=scn.nextFloat();
-
-
+                    
+                 boolean toggle= true;
+                    
+                 while(toggle)
+                 {System.out.println("Enter the initial position");
+                    double f1=scn.nextDouble();
+                     if(f1>0)
+                    {
+                        s0[1]=f1;
+                        toggle=false;
+                    }
+                    else{
+                        System.out.println("Can only take postiive values");
+                    }
+                }
             switch(obj_type_id)
             {             
                 case 1:
                 {                  
                     System.out.println("Enter the length of the object");
-                    l=scn.nextFloat();
+                    l=scn.nextDouble();
                     System.out.println("Enter the width of the object");
-                    b=scn.nextFloat();
+                    b=scn.nextDouble();
                     obj.add(new Solid_Block(mass, mu, s0, u, limit, obj_type_id, l, b));
                     break;
                    
@@ -58,16 +65,16 @@ public class Pulley_Input {
                 case 2:
                 {
                     System.out.println("Enter the radius of the object");
-                    double r=scn.nextFloat();
+                    double r=scn.nextDouble();
                     obj.add(new Sphere(mass, mu, s0, u, limit, obj_type_id,r));
                     break;
                 }
                 case 3:
                 {
                     System.out.println("Enter the radius of the object");
-                    double r=scn.nextFloat();
+                    double r=scn.nextDouble();
                     System.out.println("Enter the height of the object");
-                    double h=scn.nextFloat();
+                    double h=scn.nextDouble();
                     obj.add(new Cylinder(mass, mu, s0, u, limit, obj_type_id, r, h));
                     break;
                 }
