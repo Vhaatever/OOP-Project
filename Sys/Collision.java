@@ -20,11 +20,11 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
     public void describe_constraints()
     {
-        System.out.println("The mass has to be the same for the objects (assumption in our system). The unit is kg");
-        System.out.println("The velocity is with a direction. The unit is m/s");
-        System.out.println("The initial position is with respect to the reference.");
-        System.out.println("You are allowed to take friction coefficient arbitraily non negative");
-        System.out.println("Initial acceleration is assumed to be zero");
+        System.out.println("The mass has to be the same for the objects (assumption in our system). \n");
+        System.out.println("The velocity is with a direction. \n");
+        System.out.println("The initial position is with respect to the reference. \n");
+        System.out.println("You are allowed to take friction coefficient arbitraily non negative \n");
+        System.out.println("Initial acceleration is assumed to be zero \n");
     }
 
    boolean check_collision(Objects obj1, Objects obj2)
@@ -45,7 +45,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
     }
     public void describe_reference()
     {
-        System.out.println("The 1D coordinate system will be follwoed with the package in the same refernece frame");
+        System.out.println("The 1D coordinate system will be follwoed with the package in the same refernece frame. The input is with respect to the zero reference \n");
     }
 
     private static double slice;
@@ -78,7 +78,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                     if(!is_Valid(obj1, obj2))
                     {
                        toggle= false;
-                       System.out.println( "System input invalid. Object"+i+" and Object " +j+" has intersecting initial placement");
+                       System.out.println( "System input invalid. Object"+i+" and Object " +j+" has intersecting initial placement \n");
                        break check;
                     }
                     else{
@@ -106,7 +106,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                         {
                       
                             update_vel_collision(obj1, obj2);  
-                            System.out.println("Collision occurs");
+                            System.out.println("\n ********** \n ********** Collision occurs\n ********** \n ********** \n");
                         }
                     }
                 }

@@ -24,16 +24,21 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
     
 	public void describe_constraints()
 	{
-		System.out.println("Friction is not considered. \n There is no restriction on the kind of object you choose\n"+
-"The initial placement of object is assumed to be such, that the object initially placed will be compressing the spring by a distance X_0\n"+
-"Everything happens on horizontal plane"+"\n the object is attached to the spring");
+		System.out.println("Friction is not considered.\n");
+		System.out.println(" There is no restriction on the kind of object you choose \n");
+		System.out.println("The initial placement of object is assumed to be such, that the object initially placed will be compressing the spring by a distance X_0 \n"); 
+		System.out.println("Everything happens on horizontal plane \n");
+		System.out.println("The object is attached to the spring \n");
+
 	}
 
 	public void describe_reference()
 	{
-		System.out.println("The initial placement of object is assumed to be such, that the object initially placebe compressing with a maximum ompression\n The changes will be shown as cartesian coordinates. ");
-		System.out.println("The initial coordinates will be zero along Y direction");
-		System.out.println("There will be compression if intial coordinate negative. There will be stretching if the intial coordinate positive");
+		System.out.println("The initial placement of object is assumed to be such, that the object initially placebe compressing with a maximum ompression. \n");
+		System.out.println("The changes will be shown as cartesian coordinates. \n"); 
+		System.out.println("The initial coordinates will be zero along Y direction. \n");
+		System.out.println("There will be compression if intial coordinate negative. \n");
+		System.out.println("There will be stretching if the intial coordinate positive \n");
 	}
 
 	public void simulate(ArrayList<Object> obj, double slice, int delta) {

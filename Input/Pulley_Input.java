@@ -32,14 +32,14 @@ public class Pulley_Input {
                     u= new double[2];
                     mu=0;
                     s0[0]=0;
-                    System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
+                    System.out.println("Enter the mass of the object (in kg)"); //We can replace the onject dynammically
                     mass=scn.nextDouble();
                 
                     
                  boolean toggle= true;
                     
                  while(toggle)
-                 {System.out.println("Enter the initial position");
+                 {System.out.println("Enter the initial position (in m)");
                     double f1=scn.nextDouble();
                      if(f1>0)
                     {
@@ -47,16 +47,16 @@ public class Pulley_Input {
                         toggle=false;
                     }
                     else{
-                        System.out.println("Can only take postiive values");
+                        System.out.println("Can only take postiive values\n");
                     }
                 }
             switch(obj_type_id)
             {             
                 case 1:
                 {                  
-                    System.out.println("Enter the length of the object");
+                    System.out.println("Enter the length of the object(in m)");
                     l=scn.nextDouble();
-                    System.out.println("Enter the width of the object");
+                    System.out.println("Enter the width of the object(in m)");
                     b=scn.nextDouble();
                     obj.add(new Solid_Block(mass, mu, s0, u, limit, obj_type_id, l, b));
                     break;
@@ -64,16 +64,16 @@ public class Pulley_Input {
                 }
                 case 2:
                 {
-                    System.out.println("Enter the radius of the object");
+                    System.out.println("Enter the radius of the object(in m)");
                     double r=scn.nextDouble();
                     obj.add(new Sphere(mass, mu, s0, u, limit, obj_type_id,r));
                     break;
                 }
                 case 3:
                 {
-                    System.out.println("Enter the radius of the object");
+                    System.out.println("Enter the radius of the object (in m)");
                     double r=scn.nextDouble();
-                    System.out.println("Enter the height of the object");
+                    System.out.println("Enter the height of the object (in m)");
                     double h=scn.nextDouble();
                     obj.add(new Cylinder(mass, mu, s0, u, limit, obj_type_id, r, h));
                     break;

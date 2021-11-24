@@ -63,15 +63,16 @@ public class PulleySys extends Systems implements Force_Y, Pulley {
 
     @Override
     public void describe_constraints() {
-        System.out.println("The system can only move in y axis");
-        System.out.println("The system can be provided with the initial velocity");
-               
+        System.out.println("The system can only move in y axis \n");
+        System.out.println("The system cannot be provided with an initial velocity if the velocity is different. String inextensible \n");
     }
 
     @Override
     public void describe_reference() {
-        System.out.println("You are providing the distance of the two objects which tacitly provides the string length. \n This string length becomes a constraint");        
-        System.out.println("You are providing the distance of the object from the pulley. The values below the pulley is the postive coordinate");
+        System.out.println("You are providing the distance of the two objects which tacitly provides the string length \n");
+        System.out.println("This string length becomes a constraint \n");
+        System.out.println("You are providing the distance of the object from the pulley. \n");
+        System.out.println("The values below the pulley is the postive coordinate \n");
      }
 
      public double getSlice(ArrayList<Objects> obj)

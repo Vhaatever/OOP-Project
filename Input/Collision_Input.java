@@ -32,27 +32,27 @@ public static ArrayList<Objects> initiate()
                     mu=0;
                     s0[1]=0;
                     u[1]=0;
-                    System.out.println("Enter the mass of the object"); //We can replace the onject dynammically
+                    System.out.println("Enter the mass of the object (in Kg)"); //We can replace the onject dynammically
                     mass=scn.nextDouble();
-                    System.out.println("Press 1 if you want to consider friction for this object");
+                    System.out.println("Press 1 if you want to consider friction for this object ");
                     int toggle= scn.nextInt();
                     if(toggle==1)
                     {
-                        System.out.println("Enter the coefficient of friction");
+                        System.out.println("Enter the coefficient of friction(non negative)");
                         mu=scn.nextDouble();
                     }
-                    System.out.println("Enter the initial position");
+                    System.out.println("Enter the initial position (in m)");
                     s0[0]=scn.nextDouble();
  
-                    System.out.println("Enter the initial velocity");  
+                    System.out.println("Enter the initial velocity (in m/s)");  
                     u[0]=scn.nextDouble();
                     switch(obj_type_id)
                     {             
                         case 1:
                         {                  
-                            System.out.println("Enter the length of the object");
+                            System.out.println("Enter the length of the object (in m)");
                             l=scn.nextFloat();
-                            System.out.println("Enter the width of the object");
+                            System.out.println("Enter the width of the object (in m)");
                             b=scn.nextFloat();
                             obj.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, l, b));
                             break;
@@ -60,16 +60,16 @@ public static ArrayList<Objects> initiate()
                         }
                         case 2:
                         {
-                            System.out.println("Enter the radius of the object");
+                            System.out.println("Enter the radius of the object (in m)");
                             double r=scn.nextFloat();
                             obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
                             break;
                         }
                         case 3:
                         {
-                            System.out.println("Enter the radius of the object");
+                            System.out.println("Enter the radius of the object (in m)");
                             double r=scn.nextFloat();
-                            System.out.println("Enter the height of the object");
+                            System.out.println("Enter the height of the object (in m)");
                             double h=scn.nextFloat();
                             obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
                             break;

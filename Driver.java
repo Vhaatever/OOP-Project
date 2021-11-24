@@ -15,9 +15,9 @@ public static void main(String[] args)
     op.legend_system();
   
     sys_ID=scn.nextInt();
-    System.out.println("Input Time");
+    System.out.println("Input Time (in seconds). This is the time for which you want to run the simulation \n");
     double time =scn.nextDouble();
-    System.out.println("Number of iterations");
+    System.out.println("Number of iterations. The number of outputs (divided into equal intervals) \n");
     int delta= scn.nextInt();
     double slice = op.calc_iterations(time, delta);
    

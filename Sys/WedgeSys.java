@@ -26,27 +26,30 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 	public void describe_constraints()
 	{
-		System.out.println("You can only choose one object and a wedge for now \n There is no restriction on the kind of object you choose\n"+
-"The initial placement of object is assumed to be such, that the object initially placed will be touching the slope \n you can input the angle of inclination");
+		System.out.println("You can only choose one object and a wedge for now \n");
+		System.out.println("There is no restriction on the kind of object you choose\n"); 
+		System.out.println("The initial placement of object is assumed to be such, that the object initially placed will be touching the slope \n"); 
+		System.out.println("you can input the angle of inclination \n");
 	}
 
 	public void describe_reference()
 	{
-		System.out.println("The initial placement of object is assumed to be such, that the object initially placed will be touching the slope\n The changes will be shown as cartesian coordinates. ");
-		System.out.println("The initial coordinates will be zero along both X and Y direction");
-		System.out.println("The initial velocity will be along the wedge. Positive velocity means up the slope. Negative means down the slope");
+		System.out.println("The initial placement of object is assumed to be such, that the object initially placed will be touching the slope \n");
+		System.out.println("The changes will be shown as cartesian coordinates.\n");
+		System.out.println("The initial coordinates will be zero along both X and Y direction \n");
+		System.out.println("The initial velocity will be along the wedge. Positive velocity means up the slope. Negative means down the slope \n");
 	}
 
 	public void simulate(ArrayList<Object> obj, double slice, int delta) {
 		Objects ob= (Objects) obj.get(0);
 		Wedge wd= (Wedge) obj.get(1);
-		System.out.println("Enter the velocity.Positive velocity means down the slope. Negative means up the slope");
+		System.out.println("Enter the velocity.Positive velocity means down the slope. Negative means up the slope \n");
 		Scanner scn= new Scanner(System.in);
 		Double u= scn.nextDouble();
 		boolean toggle=false;
 		if(ob.getMu()>=Math.tan(wd.getAngle())&&ob.getMu()!=0)
 		{
-			System.out.println("Object doesnt move. Friction works");
+			System.out.println("\n ********** \n ********** Object doesnt move. Friction works \n ********** \n ********** \n");
 			toggle=true;
 		}
 		update_vel_init(ob, u, wd.getAngle());

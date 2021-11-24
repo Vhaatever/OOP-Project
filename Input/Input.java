@@ -15,9 +15,9 @@ public abstract class Input {
         {             
             case 1:
             {                  
-                System.out.println("Enter the length of the object");
+                System.out.println("Enter the length of the object (in m)");
                 l=scn.nextDouble();
-                System.out.println("Enter the width of the object");
+                System.out.println("Enter the width of the object (in m)");
                 b=scn.nextDouble();
                 obj.add(new Solid_Block(mass, mu, s0, u, i, obj_type_id, l, b));
                 break;
@@ -25,16 +25,16 @@ public abstract class Input {
             }
             case 2:
             {
-                System.out.println("Enter the radius of the object");
+                System.out.println("Enter the radius of the object (in m)");
                 double r=scn.nextDouble();
                 obj.add(new Sphere(mass, mu, s0, u, i, obj_type_id,r));
                 break;
             }
             case 3:
             {
-                System.out.println("Enter the radius of the object");
+                System.out.println("Enter the radius of the object (in m)");
                 double r=scn.nextDouble();
-                System.out.println("Enter the height of the object");
+                System.out.println("Enter the height of the object (in m)");
                 double h=scn.nextDouble();
                 obj.add(new Cylinder(mass, mu, s0, u, i, obj_type_id, r, h));
                 break;
