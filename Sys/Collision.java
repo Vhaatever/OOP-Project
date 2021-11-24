@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import Describe.*;
 import Objt.*;
 public class Collision extends Systems implements Friction, Force_X, Ground {
-    private static final double TOLERANCE = (double) 0.05;
+    private static final double TOLERANCE = 0.05;
     private static final double G = 9.8;
 
     public void update_acc_X(Objects obj)
@@ -29,8 +29,8 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
 
    boolean check_collision(Objects obj1, Objects obj2)
 {
-    double cond1 = obj2.getS0()[0]+obj2.getPoint_collision()-obj1.getS0()[0]+obj1.getPoint_collision();
-    double cond2 = obj1.getS0()[0]+obj1.getPoint_collision()-obj2.getS0()[0]+obj2.getPoint_collision();
+    double cond1 = obj2.getS()[0]+obj2.getPoint_collision()-obj1.getS()[0]+obj1.getPoint_collision();
+    double cond2 = obj1.getS()[0]+obj1.getPoint_collision()-obj2.getS()[0]+obj2.getPoint_collision();
     if(cond2 < TOLERANCE || cond1 < TOLERANCE) 
         return true;
     else
@@ -102,8 +102,9 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
                     {
                         Objects obj1=obj.get(i);
                         Objects obj2=obj.get(j);
-                        if(check_collision(obj1, obj2))
+                        if(!check_collision(obj1, obj2))
                         {
+                      
                             update_vel_collision(obj1, obj2);  
                             System.out.println("Collision occurs");
                         }

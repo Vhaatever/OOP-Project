@@ -35,8 +35,8 @@ public class Spring_Attached_Input extends Input{
                 System.out.println("Enter the initial Displacement"); 
                 s0[0]=scn.nextDouble(); 
                 double k;
-                k= scn.nextDouble();
                 System.out.println("Enter the Spring coefficient for the spring");
+                k= scn.nextDouble();
                 obj.add(new Spring(k));
                 
         int i=1; //for object

@@ -7,10 +7,13 @@ import Objt.Objects;
 import Objt.Spring;
 
 public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
+
+	double slice;
+	int i;
 	@Override
-	public void update_acc_X(Objects obj, Spring sp,double slice) {
+	public void update_acc_X(Objects obj, Spring sp) {
 		double[] a = new double[2];
-		a[0]=-1*obj.getS0()[0]*Math.cos(find_omega(sp.getK(), obj.getMass())*slice*Math.PI/180);
+		a[0]=-1*obj.getS0()[0]*Math.cos(find_omega(sp.getK(), obj.getMass())*slice*i*Math.PI/180);
 		obj.setA(a);	
 	}
     @Override
@@ -40,11 +43,14 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 
 		if(!toggle)
 		{
+			
 			for(int i=1; i<delta+1; i++)
 			{
-				update_acc_X(ob, sp, slice);
-                update_distance_harm(ob, sp, slice);
-                update_velocity_harm(ob, sp, slice);
+				this.slice = slice;
+				this.i = i;
+				update_acc_X(ob, sp);
+                update_distance_harm(ob, sp);
+                update_velocity_harm(ob, sp);
 				System.out.println(ob.toString());
 			}
 			
@@ -57,15 +63,15 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 		return Math.sqrt(k/m);		
 	}
 	@Override
-	public void update_distance_harm(Objects ob, Spring sp, double k) {
+	public void update_distance_harm(Objects ob, Spring sp) {
 		double[] s = new double[2];
-		s[0]=-ob.getS0()[0]*Math.cos(find_omega(sp.getK(), ob.getMass())*k*Math.PI/180);
+		s[0]=-ob.getS0()[0]*Math.cos(find_omega(sp.getK(), ob.getMass())*slice*i*Math.PI/180);
 		ob.setS(s);	
 	}
 	@Override
-	public void update_velocity_harm(Objects ob, Spring sp, double k) {
+	public void update_velocity_harm(Objects ob, Spring sp) {
 		double[] v = new double[2];
-		v[0]=-1*ob.getS0()[0]*Math.sin(find_omega(sp.getK(), ob.getMass())*k*Math.PI/180);
+		v[0]=-1*ob.getS0()[0]*Math.sin(find_omega(sp.getK(), ob.getMass())*slice*i*Math.PI/180);
 		ob.setV(v);	
 	}
 
