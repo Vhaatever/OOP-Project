@@ -40,7 +40,7 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 	public void simulate(ArrayList<Object> obj, double slice, int delta) {
 		Objects ob= (Objects) obj.get(0);
 		Wedge wd= (Wedge) obj.get(1);
-		System.out.println("Enter the velocity.Positive velocity means up the slope. Negative means down the slope");
+		System.out.println("Enter the velocity.Positive velocity means down the slope. Negative means up the slope");
 		Scanner scn= new Scanner(System.in);
 		Double u= scn.nextDouble();
 		boolean toggle=false;
@@ -53,24 +53,27 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 		if(!toggle)
 		{
+			ob.setV(ob.getU());
 			for(int i=1; i<delta+1; i++)
 			{
 				check_friction(ob,wd);
 				update_acc(ob, wd, friction);
                 update_distance(ob, slice);
+				
                 update_velocity(ob, slice);
+				
+				System.out.println("Time-"+slice*i);
 				System.out.println(ob.toString());
 			}
 			
 
 		}
 		scn.close();	
-		this.check_friction(ob,wd);
 	}
 
 	@Override
 	public void update_vel_init(Objects obj, Double u, Double k) {
-		double uArray[]= {(double)(-Math.cos(k)*u),(double)(Math.sin(k)*u)};
+		double uArray[]= {(Math.cos(k)*u),(Math.sin(k)*u)};
 		obj.setU(uArray);
 	}
 
@@ -95,8 +98,8 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 	@Override
 	public void update_acc(Objects ob, Wedge wd, double friction) {
-		double a1=(double)(ob.getMass()*G*Math.cos(wd.getAngle())-ob.getMu()*ob.getMass()*G*Math.sin(wd.getAngle()));
-		double a2=(double)(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
+		double a1=(ob.getMass()*G*Math.cos(wd.getAngle())-ob.getMu()*ob.getMass()*G*Math.sin(wd.getAngle()));
+		double a2=(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
 		double[] acc= {a1,a2};
 		ob.setA(acc);
 	

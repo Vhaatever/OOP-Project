@@ -16,7 +16,7 @@ public static void main(String[] args)
   
     sys_ID=scn.nextInt();
     System.out.println("Input Time");
-    double time =scn.nextInt();
+    double time =scn.nextDouble();
     System.out.println("Number of iterations");
     int delta= scn.nextInt();
     double slice = op.calc_iterations(time, delta);

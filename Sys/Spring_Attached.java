@@ -51,6 +51,7 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 				update_acc_X(ob, sp);
                 update_distance_harm(ob, sp);
                 update_velocity_harm(ob, sp);
+				System.out.println("Time-"+slice*i);
 				System.out.println(ob.toString());
 			}
 			
