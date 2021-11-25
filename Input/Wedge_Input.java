@@ -72,6 +72,7 @@ int i=1; //for object
 
         System.out.println("Enter the angle of inclination for the wedge");
         double angle= scn.nextInt();
+        angle= Math.toRadians(angle);
         obj.add(new Wedge(angle));
        
         return obj;

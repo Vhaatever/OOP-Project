@@ -34,11 +34,11 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 
 	public void describe_reference()
 	{
-		System.out.println("The initial placement of object is assumed to be such, that the object initially placebe compressing with a maximum ompression. \n");
+		System.out.println("The initial placement of object is assumed to be such, that the object initially placebe compressing with a maximum compression. \n");
 		System.out.println("The changes will be shown as cartesian coordinates. \n"); 
 		System.out.println("The initial coordinates will be zero along Y direction. \n");
-		System.out.println("There will be compression if intial coordinate negative. \n");
-		System.out.println("There will be stretching if the intial coordinate positive \n");
+		System.out.println("There will be compression if the initial coordinate is negative. \n");
+		System.out.println("There will be stretching if the initial coordinate is positive \n");
 	}
 
 	public void simulate(ArrayList<Object> obj, double slice, int delta) {
@@ -71,13 +71,15 @@ public class Spring_Attached extends Systems implements  Spring_Force, Ground  {
 	@Override
 	public void update_distance_harm(Objects ob, Spring sp) {
 		double[] s = new double[2];
-		s[0]=-ob.getS0()[0]*Math.cos(find_omega(sp.getK(), ob.getMass())*slice*i*Math.PI/180);
+		double wt = find_omega(sp.getK(), ob.getMass())*slice*i;
+		s[0]=-ob.getS0()[0]*Math.cos((wt));
 		ob.setS(s);	
 	}
 	@Override
 	public void update_velocity_harm(Objects ob, Spring sp) {
 		double[] v = new double[2];
-		v[0]=-1*ob.getS0()[0]*Math.sin(find_omega(sp.getK(), ob.getMass())*slice*i*Math.PI/180);
+		double wt = find_omega(sp.getK(), ob.getMass())*slice*i;
+		v[0]=-1*ob.getS0()[0]*Math.sin(wt);
 		ob.setV(v);	
 	}
 

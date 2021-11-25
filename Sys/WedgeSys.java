@@ -8,7 +8,6 @@ import Objt.Objects;
 import Objt.Wedge;
 public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
-	private static final double TOLERANCE = 0.05;
 	private double friction;
 	@Override
 	public void update_acc_X(Objects obj) {
@@ -82,12 +81,12 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 	@Override
 	public void check_friction(Objects obj, Wedge wedge) {
-		if(obj.getV()[0]<TOLERANCE&&obj.getV()[1]<TOLERANCE)
+		if(obj.getV()[0]!=0&&obj.getV()[1]!=0)
 		{
-			this.setFriction(obj.getMass()*G*Math.sin(wedge.getAngle()));
+			this.setFriction(obj.getMass()*obj.getMu()*G*Math.cos(wedge.getAngle()));
 		}
 		else{
-			this.setFriction(obj.getMass()*obj.getMu()*G*Math.cos(wedge.getAngle()));
+			this.setFriction(obj.getMass()*G*Math.sin(wedge.getAngle()));
 		}
 	}
 
@@ -101,9 +100,15 @@ public class WedgeSys extends Systems implements Force_X, Friction, Slope{
 
 	@Override
 	public void update_acc(Objects ob, Wedge wd, double friction) {
-		double a1=(ob.getMass()*G*Math.cos(wd.getAngle())-ob.getMu()*ob.getMass()*G*Math.sin(wd.getAngle()));
-		double a2=(G-G*Math.cos(wd.getAngle())-Math.sin(friction));	
-		double[] acc= {a1,a2};
+		double MG = ob.getMass()*G;
+		double Normal = MG*Math.cos(wd.getAngle());
+		double SIN = Math.sin(wd.getAngle());
+		double COS = Math.cos(wd.getAngle());
+		double fx = friction*COS;
+		double fy = friction*SIN;
+		double ax= Normal*SIN - fx;
+		double ay= MG - Normal*COS - fy;	
+		double[] acc= {ax,ay};
 		ob.setA(acc);
 	
 	}}

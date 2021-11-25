@@ -127,7 +127,7 @@ public class Collision extends Systems implements Friction, Force_X, Ground {
     }
    public void check_friction(Objects obj) {
         
-        if(obj.getV()[0]>0)
+        if(obj.getV()[0]>0 || obj.getV()[0]<0)
         {
             update_acc_X(obj);
         }
